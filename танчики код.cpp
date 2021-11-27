@@ -71,16 +71,16 @@ public:
 };
 
 class Tpula {
-	int x,y;
-	int speed;
-	Tdir dir;
+    int x,y;
+    int speed;
+    Tdir dir;
 public:
-	bool use;
-	Tpula() { use = 0; speed = 5; }
-	void SetPula(int px, int py, Tdir pdir)//создає пулу в заданій точці і задає напрямок
-		{ x = px; y = py; dir = pdir; use = 1; }
-	void Move();
-	void Show(mapHW &map) { if (!use) return; map[y][x] = '*'; }//відображаємо пулю якщо вона активна 
+    bool use;
+    Tpula() { use = 0; speed = 5; }
+    void SetPula(int px, int py, Tdir pdir)//створює пулу в заданій точці і задає напрямок
+    { x = px; y = py; dir = pdir; use = 1; }
+    void Move();
+    void Show(mapHW &map) { if (!use) return; map[y][x] = '*'; }//відображаємо пулю якщо вона активна
 };
 
 Tmap scr;
@@ -93,9 +93,9 @@ Tpula pula[pulaCnt];
 
 Tpula &GetFreePula()
 {
-	for (int i = 0; i < pulaCnt; i++)
-		if (!pula[i].use) return pula[i];
-	return pula[0];
+    for (int i = 0; i < pulaCnt; i++)
+        if (!pula[i].use) return pula[i];
+    return pula[0];
 }
 
 Ttank *CheckCrossAnyTank(RECT rct, Ttank *eccept){//область для провірки та танк який не потрібно провіряти
